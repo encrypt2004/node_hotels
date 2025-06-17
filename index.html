@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Registration</title>
+  <style>
+    body {
+      background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #eee;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 16px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #6a82fb;
+      box-shadow: 0 0 5px rgba(106, 130, 251, 0.5);
+      outline: none;
+    }
+
+    label {
+      margin-right: 10px;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    .radio-group {
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      background: #6a82fb;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #4b61d1;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form action="/register" method="POST">
+    <h2>Event Registration</h2>
+    <input name="fullName" placeholder="Full Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input name="mobile" placeholder="Mobile Number" required />
+    <input name="organization" placeholder="College/Company" />
+
+    <select name="session" required>
+      <option disabled selected value="">Select a session</option>
+      <option>Morning</option>
+      <option>Afternoon</option>
+      <option>Evening</option>
+    </select>
+
+    <div class="radio-group">
+      <label><input type="radio" name="attendance" value="Yes" required /> Yes</label>
+      <label><input type="radio" name="attendance" value="No" /> No</label>
+      <label><input type="radio" name="attendance" value="Maybe" /> Maybe</label>
+    </div>
+
+    <textarea name="notes" placeholder="Any comments?"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
